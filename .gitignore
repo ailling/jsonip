@@ -1,0 +1,8 @@
+*.pyo
+*.pyc
+venv
+.project
+.pydevproject
+.settings
+*.resources.prefs
+.idea
