@@ -1,7 +1,7 @@
 
 import json
-from django.http import HttpResponse
 from decorators import json_response
+from datetime import datetime
 
 def get_client_ip(request):
     x_forwarded_for = request.META.get("HTTP_X_FORWARDED_FOR")
@@ -15,6 +15,7 @@ def get_client_ip(request):
 @json_response
 def homepage(request):
     data = {"ip": get_client_ip(request),
+            "timestamp": str(datetime.now()),
             "request_meta": {
                 "http_referer": request.META.get("HTTP_REFERER"),
                 "content_length": request.META.get("CONTENT_LENGTH"),
