@@ -14,7 +14,7 @@ def get_client_ip(request):
 
 @json_response
 def homepage(request):
-    data = {"ip": get_client_ip(request),
+    data = {"ip": request.META.get("REMOTE_ADDR"),
             "request_meta": {
                 "http_referer": request.META.get("HTTP_REFERER"),
                 "content_length": request.META.get("CONTENT_LENGTH"),
