@@ -15,7 +15,6 @@ def get_client_ip(request):
 @json_response
 def homepage(request):
     data = {"ip": get_client_ip(request),
-            "host": request.get_host(),
             "request_meta": {
                 "http_referer": request.META.get("HTTP_REFERER"),
                 "content_length": request.META.get("CONTENT_LENGTH"),
@@ -41,7 +40,8 @@ def about(request):
     data = {"description": "A simple network and development tool to inspect HTTP requests and initiating clients",
             "developer": "Alan Illing",
             "developer-website": "http://alanilling.com",
-            "developer-github": "https://github.com/ailling"
+            "developer-github": "https://github.com/ailling",
+            "source": "https://github.com/ailling/jsonip"
     }
     return data
 
